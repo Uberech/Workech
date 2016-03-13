@@ -45,6 +45,12 @@ RSpec.feature "Visiting Pages" do
     #  accepts this request
   end
 
+  scenario "Friendship"  do
+    pending "Add friendship tests"
+    expect(1).to eq(0)
+    # Use the has_friends gem to handle friendship modeling.
+  end
+
   scenario "Nav"  do
     pending "Add helper for nav checking"
     expect(1).to eq(0)
