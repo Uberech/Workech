@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'workouts/friends' => 'workouts#friends'
+  get 'workouts/summary' => 'workouts#summary'
+  
+  resources :workouts
   devise_for :users
   root 'pages#home'
 
