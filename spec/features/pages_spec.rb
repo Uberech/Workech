@@ -6,7 +6,6 @@ RSpec.feature "Visiting Pages" do
     visit "/"
     expect(page).to have_content('Workech')
     expect(page).to have_content('Sign up')
-
   end
 
   scenario "Workouts"  do
@@ -59,7 +58,7 @@ RSpec.feature "Visiting Pages" do
   scenario "Footer"  do
     pending "Add helper for footer checking"
     expect(1).to eq(0)
-    # Footer should include a link to Uberech
+    # Footer should include a link back to Uberech
   end
   
 end
