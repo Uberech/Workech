@@ -4,7 +4,7 @@ class CreateWorkouts < ActiveRecord::Migration
       t.string :description
       t.date :workout_date
       t.boolean :completed
-      t.references :User, index: true, foreign_key: true
+      t.references :user, index: true, foreign_key: true
 
       t.timestamps null: false
     end

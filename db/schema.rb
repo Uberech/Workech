@@ -35,11 +35,11 @@ ActiveRecord::Schema.define(version: 20160317174945) do
     t.string   "description"
     t.date     "workout_date"
     t.boolean  "completed"
-    t.integer  "User_id"
+    t.integer  "user_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
 
-  add_index "workouts", ["User_id"], name: "index_workouts_on_User_id"
+  add_index "workouts", ["user_id"], name: "index_workouts_on_user_id"
 
 end
