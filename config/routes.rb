@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get 'workouts/friends' => 'workouts#friends'
+  get 'workouts/summary' => 'workouts#summary'
+  
+  resources :workouts
+  devise_for :users
+  root 'pages#home'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
