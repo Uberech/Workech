@@ -1,0 +1,16 @@
+<%= nav_bar brand: "Brand", responsive: true do %>
+    <%= menu_group do %>
+        <%= drop_down "Workouts" do %>
+            <%= menu_item "My Workouts", workouts_path %>
+            <%= menu_item "Friend's Workouts", workouts_friends_path %>
+            <%= menu_item "Summary", workouts_summary_path %>
+        <% end %>
+    <% end %>
+    <%= menu_group pull: :right do %>
+        <% if current_user %>
+            <%= menu_item "Sign out", destroy_user_session_path, method: :delete %>
+        <% else %>
+            <%= menu_item "Sign in", new_user_session_path %>
+        <% end %>
+    <% end %>
+<% end %>
