@@ -1,4 +1,4 @@
-<%= form_for @workout, :html => { :class => "form-horizontal workout" } do |f| %>
+<%= form_for @workout, remote: true, :html => { :class => "form-horizontal workout" } do |f| %>
 
   <% if @workout.errors.any? %>
     <div id="error_expl" class="panel panel-danger">
@@ -16,32 +16,32 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :description, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
+    <%= f.label :description, :class => 'control-label col-lg-3' %>
+    <div class="col-lg-9">
       <%= f.text_field :description, :class => 'form-control' %>
     </div>
     <%=f.error_span(:description) %>
   </div>
   <div class="form-group">
-    <%= f.label :workout_date, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
+    <%= f.label :workout_date, :class => 'control-label col-lg-3' %>
+    <div class="col-lg-9">
       <%= f.text_field :workout_date, :class => 'form-control' %>
     </div>
     <%=f.error_span(:workout_date) %>
   </div>
   <div class="form-group">
-    <%= f.label :completed, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
+    <%= f.label :completed, :class => 'control-label col-lg-3' %>
+    <div class="col-lg-9">
       <%= f.text_field :completed, :class => 'form-control' %>
     </div>
     <%=f.error_span(:completed) %>
   </div>
   <div class="form-group">
-    <%= f.label :User_id, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :User_id, :class => 'form-control' %>
+    <%= f.label :user_id, :class => 'control-label col-lg-3' %>
+    <div class="col-lg-9">
+      <%= f.text_field :user_id, :class => 'form-control' %>
     </div>
-    <%=f.error_span(:User_id) %>
+    <%=f.error_span(:user_id) %>
   </div>
 
   <div class="form-group">

@@ -43,11 +43,14 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-9">
-          <%= bootstrap_flash %>
-          <%= yield %>
+          <%= bootstrap_flash id: "FlashBootstrap" %>
+          <div id="content">
+            <%= yield %>
+          </div>
+          
         </div>
         <div class="col-lg-3">
-          <div class="well sidebar-nav">
+          <div class="well sidebar-nav" id="sidebar">
             <h3>Sidebar</h3>
             <ul class="nav nav-list">
               <li class="nav-header">Sidebar</li>
@@ -59,7 +62,7 @@
         </div><!--/span-->
       </div><!--/row-->
 
-      <footer>
+      <footer id="footer">
         <p>&copy; Company 2016</p>
       </footer>
 

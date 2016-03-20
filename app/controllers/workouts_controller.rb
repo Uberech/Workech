@@ -1,88 +1,44 @@
 class WorkoutsController < ApplicationController
-  before_action :set_task, only: [:show]
-  before_action :set_task_current_user, only: [:edit, :update, :destroy]
-  
-  def friends
-  end
-  
-  def summary
-  end
-  
-  
-  # -------- Scaffolding --------
+  before_action :all_workouts, only: [:index, :create, :update, :destroy]
+  before_action :set_workouts, only: [:edit, :update, :destroy]
+  respond_to :html, :js
 
-  # GET /workouts
-  # GET /workouts.json
   def index
     @workouts = Workout.all
+  
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
-  # GET /workouts/1
-  # GET /workouts/1.json
-  def show
-  end
-
-  # GET /workouts/new
   def new
     @workout = Workout.new
   end
-
-  # GET /workouts/1/edit
-  def edit
-  end
-
-  # POST /workouts
-  # POST /workouts.json
-  def create
-    @workout = Workout.new(workout_params)
-
-    respond_to do |format|
-      if @workout.save
-        format.html { redirect_to @workout, notice: 'Workout was successfully created.' }
-        format.json { render :show, status: :created, location: @workout }
-      else
-        format.html { render :new }
-        format.json { render json: @workout.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /workouts/1
-  # PATCH/PUT /workouts/1.json
+  
   def update
-    respond_to do |format|
-      if @workout.update(workout_params)
-        format.html { redirect_to @workout, notice: 'Workout was successfully updated.' }
-        format.json { render :show, status: :ok, location: @workout }
-      else
-        format.html { render :edit }
-        format.json { render json: @workout.errors, status: :unprocessable_entity }
-      end
-    end
+    @workout.update_attributes(workout_params)
   end
 
-  # DELETE /workouts/1
-  # DELETE /workouts/1.json
+  def create
+    @workout  = Workout.create(workout_params)
+  end
+  
   def destroy
     @workout.destroy
-    respond_to do |format|
-      format.html { redirect_to workouts_url, notice: 'Workout was successfully destroyed.' }
-      format.json { head :no_content }
-    end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_workout
-      @workout = Workout.find(params[:id])
+
+    def all_workouts
+      @workouts = Workout.all
     end
     
-    def set_task_current_user
-      @task = current_user.posts.find(params[:id])
+    def set_workouts
+      @workout = Workout.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def workout_params
-      params.require(:workout).permit(:description, :workout_date, :completed, :User_id)
+      params.require(:workout).permit(:description, :workout_date, :completed, :user_id)
     end
 end
